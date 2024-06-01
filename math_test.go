@@ -21,3 +21,23 @@ func TestSum(t *testing.T) {
 		}
 	}
 }
+
+func TestMultiply(t *testing.T) {
+	tableTest := []struct {
+		x        int
+		y        int
+		expected int
+	}{
+		{x: 10, y: 10, expected: 100},
+		{x: 20, y: 20, expected: 400},
+		{x: 30, y: 30, expected: 900},
+	}
+
+	for _, test := range tableTest {
+		got := Multiply(test.x, test.y)
+
+		if test.expected != got {
+			t.Errorf("expected: %d, got: %d", test.expected, got)
+		}
+	}
+}
